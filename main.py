@@ -21,10 +21,15 @@ def caesar(mode, input_text, shift_amount):
     print(f"The {mode}d text is {new_text}")
 
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
-if direction != "encode" and direction != "decode":
-    print("Invalid input.")
+restart = 'yes'
+while restart == 'yes':
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+    if direction != "encode" and direction != "decode":
+        print("Invalid input.")
+    else:
+        text = input("Type your message:\n").lower()
+        shift = int(input("Type the shift number:\n"))
+        caesar(mode=direction, input_text=text, shift_amount=shift)
+    restart = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n")
 else:
-    text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
-    caesar(mode=direction, input_text=text, shift_amount=shift)
+    print("Goodbye!")
